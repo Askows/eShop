@@ -1,50 +1,27 @@
 package com.example.eshop.products;
 
-import lombok.RequiredArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.Errors;
+
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.stream.Collectors;
-
-@Slf4j
-@Controller
-@RequiredArgsConstructor
-@SessionAttributes("errors")
-@RequestMapping("/products")
+import java.util.List;
+@RestController
+@RequestMapping("shop/product")
 public class ProductController {
+    private final ProductService productService;
 
-    private final productRepository productRepository;
 
-    @GetMapping
-    public String showHomePage(final ModelMap modelMap) {
-        modelMap.addAttribute("userName", SecurityContextHolder.getContext().getAuthentication().getName());
-        modelMap.addAttribute("newPet", new Products());
-        return "welcome";
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
-
-    @GetMapping("/all")
-    public String showAllPets(final ModelMap modelMap) {
-        modelMap.addAttribute("petList", productRepository.findAll());
-        return "products-list";
+    @GetMapping(path = "list")
+    public List<Products> list(){
+        return productService.list();
     }
-
-    @PostMapping("/save")
-    public String savePet(final ModelMap modelMap, @Valid Products products, Errors errors) {
-        if (errors.hasErrors()) {
-            modelMap.addAttribute(
-                    "errors",
-                    errors.getAllErrors().stream()
-                            .map(error -> error.getDefaultMessage())
-                            .collect(Collectors.toList()));
-        } else {
-            productRepository.save(products);
-        }
-        return "redirect:/pet";
+    @PostMapping(path = "item")
+    public List<Products> add(@RequestBody Products products){
+         productService.add(products);
+         return productService.list();
     }
 }
+
+

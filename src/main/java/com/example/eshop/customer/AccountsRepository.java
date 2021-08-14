@@ -1,4 +1,4 @@
 package com.example.eshop.customer;
 
-public interface CustomerRepository {
+public interface AccountsRepository {
 }

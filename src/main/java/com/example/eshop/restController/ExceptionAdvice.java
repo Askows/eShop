@@ -10,20 +10,4 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ExceptionAdvice {
 
-    @ExceptionHandler({MethodArgumentNotValidException.class})
-    public ResponseEntity handleBindingErrors(MethodArgumentNotValidException ex) {
-        return ResponseEntity
-                .badRequest()
-                .body(ex.getAllErrors()
-                        .stream()
-                        .map(e -> e.getDefaultMessage())
-                        .collect(Collectors.toList()));
-    }
-
-    @ExceptionHandler({NameException.class})
-    public ResponseEntity handleNameException(NameException ex) {
-        return ResponseEntity
-                .badRequest()
-                .body(ex.getMessage());
-    }
 }
