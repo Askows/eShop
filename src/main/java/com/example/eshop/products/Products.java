@@ -14,6 +14,7 @@ public class Products {
     private Long id;
     private String name;
     private double price;
+    private byte[] image;
 
 
 
@@ -37,6 +38,16 @@ public class Products {
 
     public double getPrice() {
         return price;
+    }
+
+    @Lob
+    @Column(name = "Image", length = Integer.MAX_VALUE, nullable = true)
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
     @Override
     public String toString() {

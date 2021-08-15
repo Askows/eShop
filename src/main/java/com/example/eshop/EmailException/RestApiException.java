@@ -1,4 +1,4 @@
-package com.example.eshop.response;
+package com.example.eshop.EmailException;
 
 public class RestApiException extends RuntimeException{
     public RestApiException(String message) {

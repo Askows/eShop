@@ -1,7 +1,10 @@
 package com.example.eshop.customer;
 
-import javax.persistence.*;
+import lombok.Data;
 
+import javax.persistence.*;
+@Entity
+@Data
 public class User {
     @Id
     @SequenceGenerator(name = "products_sequence", sequenceName = "products_sequence")
@@ -12,13 +15,21 @@ public class User {
     @Column(unique = true)
     private String email;
     private String Password;
+    private String Address;
+    private String Phone;
 
-    public User( String userName, String name, String email, String password) {
+    public User(String userName, String name, String email, String password, String address, String phone) {
         this.id = id;
         UserName = userName;
         Name = name;
         this.email = email;
         Password = password;
+        Address = address;
+        Phone = phone;
+    }
+
+    public User() {
+
     }
 
     public Long getId() {
