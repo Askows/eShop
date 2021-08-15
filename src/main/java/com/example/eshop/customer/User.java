@@ -3,6 +3,8 @@ package com.example.eshop.customer;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
 @Data
 public class User {
@@ -17,6 +19,12 @@ public class User {
     private String Password;
     private String Address;
     private String Phone;
+
+    //1 user
+//    @OneToMany(mappedBy = "user")
+//    private List<Order> orderList;
+
+
 
     public User(String userName, String name, String email, String password, String address, String phone) {
         this.id = id;

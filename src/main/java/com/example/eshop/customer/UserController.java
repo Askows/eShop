@@ -1,7 +1,6 @@
 package com.example.eshop.customer;
 
 
-import com.example.eshop.products.Products;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

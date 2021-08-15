@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Products {
+public class Product {
     @Id
     @SequenceGenerator(name = "products_sequence", sequenceName = "products_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_sequence")
@@ -18,13 +18,13 @@ public class Products {
 
 
 
-    public Products(String name, double price) {
+    public Product(String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public Products() {
+    public Product() {
 
     }
 

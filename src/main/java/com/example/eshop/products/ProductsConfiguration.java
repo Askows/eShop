@@ -12,10 +12,10 @@ public class ProductsConfiguration {
     public CommandLineRunner commandLineRunner(ProductRepository productRepository){
         return args -> {
          productRepository.saveAll(List.of(
-                 new Products("Keyboard",25.8),
-                new Products("mouse",21.8),
-                new Products("mousepad",14.8),
-                new Products("headset",30.8)
+                 new Product("Keyboard",25.8),
+                new Product("mouse",21.8),
+                new Product("mousepad",14.8),
+                new Product("headset",30.8)
 
 
 

@@ -2,6 +2,7 @@ package com.example.eshop.Order;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity
 @Table(name = "Orders", //
         uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
@@ -16,6 +17,11 @@ public class Order {
     private String customerAddress;
     private String customerEmail;
     private String customerPhone;
+//    @ManyToOne
+//    private User users;
+//     join product table
+//    @OneToMany
+//    private List<Order> products;
 
     @Id
     @Column(name = "ID", length = 50)

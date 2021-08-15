@@ -16,27 +16,27 @@ public class ProductService {
         this.productRepository = productRepository;
     }
     //Show all products
-    public List<Products> list(){
+    public List<Product> list(){
         return productRepository.findAll();
     }
     //Add products to database
-    public void add(Products products){
-        productRepository.save(products);
+    public void add(Product product){
+        productRepository.save(product);
     }
     //Delete product by Id from database
-    public void delete(Long productsId) {
-        productRepository.deleteById(productsId);
+    public void delete(Long productId) {
+        productRepository.deleteById(productId);
     }
     //Upddate product in database
-    public void update(Products products) {
-        Optional<Products> row = productRepository.findById(products.getId());
+    public void update(Product product) {
+        Optional<Product> row = productRepository.findById(product.getId());
         if(row.isPresent()){
-            Products item = row.get();
-            if(!products.getName().isEmpty()){
-                item.setName(products.getName());
+            Product item = row.get();
+            if(!product.getName().isEmpty()){
+                item.setName(product.getName());
             }
-            if(products.getPrice() != 0){
-                item.setPrice(products.getPrice());
+            if(product.getPrice() != 0){
+                item.setPrice(product.getPrice());
             }
             productRepository.save(item);
         }
