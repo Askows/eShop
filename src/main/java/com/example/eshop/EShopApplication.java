@@ -16,9 +16,6 @@ public class EShopApplication {
     public static void main(String[] args) {
         SpringApplication.run(EShopApplication.class, args);
     }
-    @GetMapping(path = "hello")
-    public List<String> hello(){
-        return List.of("Hello", "world");
-    }
+
 
 }
