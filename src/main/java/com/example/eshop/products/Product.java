@@ -15,6 +15,7 @@ public class Product {
     private String name;
     private double price;
     private byte[] image;
+    private String description; //!!!!!!!!!!!!!!!!!!!!!
 
 
 
