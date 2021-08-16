@@ -43,10 +43,11 @@ head, body
 {
     background-color: #abeafa;
     width: 100%;
-    height: 700px;
-	background: url("../images/Foto.jpg") no-repeat;
-	background-size: cover ;
-    float:left;
+    height: 900px;
+	background: url("../images/foto.jpg") no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 100%
 
 
 
