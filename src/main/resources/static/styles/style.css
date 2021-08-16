@@ -202,8 +202,9 @@ head, body
     float: left;
     margin-top: 15px;
     position: relative;
-    background: url("../images/Shop.jpg") no-repeat;
+    background: url("../images/shop.jpg") no-repeat;
     background-size: cover;
+    background-position: 50% 50%;
 }
 .products
 {
