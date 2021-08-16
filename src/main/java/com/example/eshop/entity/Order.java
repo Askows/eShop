@@ -1,4 +1,4 @@
-package com.example.eshop.Order;
+package com.example.eshop.entity;
 
 import javax.persistence.*;
 import java.util.Date;

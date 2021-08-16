@@ -1,6 +1,8 @@
-package com.example.eshop.customer;
+package com.example.eshop.Services;
 
 import com.example.eshop.EmailException.RestApiException;
+import com.example.eshop.entity.User;
+import com.example.eshop.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

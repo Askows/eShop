@@ -1,5 +1,6 @@
-package com.example.eshop.customer;
+package com.example.eshop.repository;
 
+import com.example.eshop.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
