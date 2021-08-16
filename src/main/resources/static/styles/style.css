@@ -200,7 +200,7 @@ head, body
     width: 270px;
     height: 300px;
     float: left;
-    margin-top: 30px;
+    margin-top: 15px;
     position: relative;
     background: url("../images/Shop.jpg") no-repeat;
     background-size: cover;
@@ -267,7 +267,7 @@ head, body
     font-family: Raleway4, sans-serif;
     color:  yellow;
     text-shadow: 5px 5px 5px #000000;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: 800;
     line-height: 36px;
     text-align: left;
@@ -276,7 +276,7 @@ head, body
     width: 96px;
     position: absolute;
     top: 90px;
-    left: 140px;
+    left: 70px;
 }
 .newproducts
 {
