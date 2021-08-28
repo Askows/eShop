@@ -10,14 +10,22 @@ import java.util.List;
 public class Order {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID", length = 50)
     private String id;
+    @Column(name = "Order_Date", nullable = false)
     private Date orderDate;
+    @Column(name = "Order_Num", nullable = false)
     private int orderNum;
+    @Column(name = "Amount", nullable = false)
     private double amount;
-
+    @Column(name = "Customer_Name", length = 255, nullable = false)
     private String customerName;
+    @Column(name = "Customer_Address", length = 255, nullable = false)
     private String customerAddress;
+    @Column(name = "Customer_Email", length = 128, nullable = false)
     private String customerEmail;
+    @Column(name = "Customer_Phone", length = 128, nullable = false)
     private String customerPhone;
     @OneToMany
     private List<Product> product;
@@ -27,8 +35,7 @@ public class Order {
 //    @OneToMany
 //    private List<Order> products;
 
-    @Id
-    @Column(name = "ID", length = 50)
+
     public String getId() {
         return id;
     }
@@ -37,7 +44,7 @@ public class Order {
         this.id = id;
     }
 
-    @Column(name = "Order_Date", nullable = false)
+
     public Date getOrderDate() {
         return orderDate;
     }
@@ -46,7 +53,7 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    @Column(name = "Order_Num", nullable = false)
+
     public int getOrderNum() {
         return orderNum;
     }
@@ -55,7 +62,7 @@ public class Order {
         this.orderNum = orderNum;
     }
 
-    @Column(name = "Amount", nullable = false)
+
     public double getAmount() {
         return amount;
     }
@@ -64,7 +71,7 @@ public class Order {
         this.amount = amount;
     }
 
-    @Column(name = "Customer_Name", length = 255, nullable = false)
+
     public String getCustomerName() {
         return customerName;
     }
@@ -73,7 +80,7 @@ public class Order {
         this.customerName = customerName;
     }
 
-    @Column(name = "Customer_Address", length = 255, nullable = false)
+
     public String getCustomerAddress() {
         return customerAddress;
     }
@@ -82,7 +89,7 @@ public class Order {
         this.customerAddress = customerAddress;
     }
 
-    @Column(name = "Customer_Email", length = 128, nullable = false)
+
     public String getCustomerEmail() {
         return customerEmail;
     }
@@ -91,7 +98,7 @@ public class Order {
         this.customerEmail = customerEmail;
     }
 
-    @Column(name = "Customer_Phone", length = 128, nullable = false)
+
     public String getCustomerPhone() {
         return customerPhone;
     }
