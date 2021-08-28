@@ -2,6 +2,7 @@ package com.example.eshop.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Orders", //
@@ -18,6 +19,8 @@ public class Order {
     private String customerAddress;
     private String customerEmail;
     private String customerPhone;
+    @OneToMany
+    private List<Product> product;
 //    @ManyToOne
 //    private User users;
 //     join product table
