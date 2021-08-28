@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>SurfHouse - Product</title>
+        <title> Product</title>
         <link rel="stylesheet" th:href="@{/styles/style.css}">
         <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
     </head>
@@ -23,20 +23,20 @@
             <div class="content">
                 <div class="menu">
                     <div id="menucaption"><p>Menu</p></div>
-                    <a href="">
-                        <div class="menuitem"><p>About</p></div>
+                    <a th:href="@{/}">
+                        <div class="menuitem"><p>Home</p></div>
                     </a>
                     <a href="">
-                        <div class="menuitem"><p>Apparel</p></div>
+                        <div class="menuitem"><p>Gaming</p></div>
                     </a>
                     <a href="">
-                        <div class="menuitem"><p>Surf apparel</p></div>
+                        <div class="menuitem"><p>Anime</p></div>
                     </a>
                     <a href="">
-                        <div class="menuitem"><p>Windsurf</p></div>
+                        <div class="menuitem"><p>Stuff</p></div>
                     </a>
-                    <a href="">
-                        <div class="menuitem"><p>Kitesurf</p></div>
+                    <a th:href="@{/orderPage}">
+                        <div class="menuitem"><p>Cart</p></div>
                     </a>
                     <a href="">
                         <div class="menuitem"><p>Accessories</p></div>
@@ -89,7 +89,7 @@
                             <p>Description</p>
                         </div>
                         <div>
-                            <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum scelerisque diam, vel ultricies eros eleifend at. Aliquam erat volutpat. Nam tincidunt, ipsum eu dignissim porta, lectus lorem tempus leo, sit amet mollis nunc ligula sit amet nisl. Duis placerat nulla metus, sit amet fermentum nisi consectetur et. Mauris tempor nulla nec lacus pharetra tempus. Suspendisse potenti. Nunc molestie mattis tortor, a scelerisque lectus. Vivamus velit nunc, bibendum id convallis eget, rhoncus non purus. Integer tincidunt nulla rhoncus semper luctus. Mauris nisi tellus, condimentum sit amet pellentesque id, facilisis ac sem. Phasellus ac dolor quis nisl luctus faucibus in eu orci.</p>
+                            <p id="description"></p>
                         </div>
                     </div>
 				</div>
@@ -152,20 +152,19 @@
                 <div id="about">
                     <p class="label">About Us</p>
                     <p class="text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dolorum ducimus error ex facilis, impedit
-                        in inventore iure nemo numquam pariatur quam quod quos rem repellat rerum sunt ullam unde.
+
                     </p>
                     <div>
-                        Phone: 1-999-342-9876
+                        Phone: +371 29697026
                         <br>
-                        e-mail: <span>info@surfhouse.com</span>
+                        e-mail: <span>info@askow.lv</span>
                     </div>
                 </div>
             </div>
             <div class="SubFooter">
                 <div class="ContentSubFooter">
                     <div id="copy">
-                        &copy; SURFHOUSE. All rights reserved - Designed by theuncreativelab.com
+                        &copy; Askow shop. All rights reserved - Designed by Andrew Strannikow
                     </div>
                     <div id="social">
                         <i class="fa fa-facebook" aria-hidden="true"></i>

@@ -8,6 +8,7 @@ import java.util.Date;
         uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
 public class Order {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private Date orderDate;
     private int orderNum;

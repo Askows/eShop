@@ -3,6 +3,7 @@ package com.example.eshop.controller;
 
 import com.example.eshop.entity.Product;
 import com.example.eshop.entity.ProductType;
+import com.example.eshop.repository.OrderRepository;
 import com.example.eshop.repository.ProductRepository;
 import com.example.eshop.repository.ProductTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class DefaultController {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    OrderRepository orderRepository;
+
 
     @GetMapping("/")
     public String index(Model model) {
@@ -40,11 +44,10 @@ public class DefaultController {
     }
     @GetMapping("/orderPage")
     public String order(Model model) {
-
-
-
         return "orderPage";
     }
+
+
 
     @GetMapping("/productTypeList")
     public String productTypeList(Model model) {
