@@ -1,9 +1,11 @@
 package com.example.eshop.entity;
 
+import com.example.eshop.security.model.Role;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -12,6 +14,7 @@ public class User {
     @SequenceGenerator(name = "products_sequence", sequenceName = "products_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_sequence")
     private Long id;
+    @Column(name = "user_name")
     private String UserName;
     private String Name;
     @Column(unique = true)
@@ -60,3 +63,16 @@ public class User {
         return Password;
     }
 }
+
+
+//    @Id
+//    private String username;
+//    private String password;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "users_roles",
+//            joinColumns = @JoinColumn(name = "user_username", referencedColumnName = "username"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+//    private Set<Role> roles;
+//}
+//

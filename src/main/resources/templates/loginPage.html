@@ -42,7 +42,7 @@
                     <a th:href="@{/}">
                         <div class="menuitem"><p>Home</p></div>
                     </a>
-                    <a th:href="@{/loginPage}">
+                    <a th:href="@{/login}">
                         <div class="menuitem"><p>Login</p></div>
                     </a>
                     <a href="">
@@ -73,25 +73,13 @@
                         <div class="menuitem"><p>Contact</p></div>
                     </a>
                 </div>
-                <div class="products">
-                    <div class="newproducts" th:each="element : ${map}">
-                        <div id="newproducts_caption">
-                            <p th:text="${element.key.name}"></p>
-                        </div>
-                        <div>
-<!--                            <div class="product" th:each="prod : ${element.value}" th:attr="onclick=|window.location.href='product/' + ${prod.id}|">-->
-                            <div class="product" th:each="prod : ${element.value}" th:attr="onclick=|window.location.href='product?id=' + ${prod.id}|">
-                                <img class="triangle" src="images/New.png" alt="new" th:if="${prod.newProduct} == true">
-                                <img class="triangle" src="images/Hot.png" alt="new" th:if="${prod.hotProduct} == true">
-                                <img class="foto" th:src="@{'/images/' + ${prod.image}}" alt="">
-                                <div class="product_name" th:text="${prod.name}">
-                                </div>
-                                <div class="product_price">
-                                    &euro; <span th:text="${prod.price}"></span><br>
-                                    <span class="product_old_price" th:unless="${prod.oldPrice} == 0">
-                                        &euro; <span th:text="${prod.oldPrice}"></span>
-                                    </span>
-                                </div>
+                <div class="login">
+                    <input type="text" placeholder="Username" id="username">
+                    <input type="password" placeholder="password" id="password">
+                    <a href="#" class="forgot">forgot password?</a>
+                    <input type="submit" value="Sign In">
+                </div>
+                <div class="shadow"></div>
                             </div>
                         </div>
                     </div>

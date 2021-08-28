@@ -46,6 +46,10 @@ public class DefaultController {
     public String order(Model model) {
         return "orderPage";
     }
+    @GetMapping("/loginPage")
+        public String login(Model model){
+        return "loginPage";
+        }
 
 
 
