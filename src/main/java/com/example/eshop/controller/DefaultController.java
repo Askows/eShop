@@ -38,6 +38,13 @@ public class DefaultController {
         model.addAttribute("product", product);
         return "product";
     }
+    @GetMapping("/orderPage")
+    public String order(Model model) {
+
+
+
+        return "orderPage";
+    }
 
     @GetMapping("/productTypeList")
     public String productTypeList(Model model) {
@@ -60,14 +67,14 @@ public class DefaultController {
         return "productTypeList";
     }
 
-    @GetMapping("/productTypeList/delete/{productTypeId}")
+    @DeleteMapping("/productTypeList/delete/{productTypeId}")
     public String productTypeListDelete(@PathVariable("productTypeId") long id, Model model) {
         productTypeRepository.deleteById(id);
         model.addAttribute("types", productTypeRepository.findAll());
         return "productTypeList";
     }
 
-    @GetMapping("/productTypeList/edit/{productTypeId}")
+    @PutMapping("/productTypeList/edit/{productTypeId}")
     public String productTypeListEdit(@PathVariable("productTypeId") long id, Model model) {
         ProductType productType = productTypeRepository.findById(id).orElse(null);
         model.addAttribute("productType", productType);
