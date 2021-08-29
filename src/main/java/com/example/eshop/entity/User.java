@@ -1,9 +1,11 @@
 package com.example.eshop.entity;
 
-import com.example.eshop.security.model.Role;
+import com.example.eshop.SecurityConfig.Role;
+
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -14,65 +16,75 @@ public class User {
     @SequenceGenerator(name = "products_sequence", sequenceName = "products_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_sequence")
     private Long id;
-    @Column(name = "user_name")
-    private String UserName;
-    private String Name;
-    @Column(unique = true)
+    @Column(name = "First_name")
+    private String FirstName;
+    @Column(name = "Last_name")
+    private String LastName;
     private String email;
     private String Password;
-    private String Address;
-    private String Phone;
+    @ManyToMany(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(
+            name= "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+                    inverseJoinColumns = @JoinColumn(
+                            name="role_id" ,referencedColumnName = "id"))
+        private Collection<Role> roles;
 
-    //1 user
-//    @OneToMany(mappedBy = "user")
-//    private List<Order> orderList;
 
-
-
-    public User(String userName, String name, String email, String password, String address, String phone) {
-        this.id = id;
-        UserName = userName;
-        Name = name;
-        this.email = email;
-        Password = password;
-        Address = address;
-        Phone = phone;
-    }
 
     public User() {
+    }
 
+    public User( String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        FirstName = firstName;
+        LastName = lastName;
+        this.email = email;
+        Password = password;
+        this.roles = roles;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getUserName() {
-        return UserName;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return Name;
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 }
 
 
-//    @Id
-//    private String username;
-//    private String password;
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "users_roles",
-//            joinColumns = @JoinColumn(name = "user_username", referencedColumnName = "username"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-//    private Set<Role> roles;
-//}
-//
+
+
