@@ -6,6 +6,7 @@ import com.example.eshop.entity.ProductType;
 import com.example.eshop.repository.OrderRepository;
 import com.example.eshop.repository.ProductRepository;
 import com.example.eshop.repository.ProductTypeRepository;
+import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,12 +29,15 @@ public class DefaultController {
     OrderRepository orderRepository;
 
 
+
+
     @GetMapping("/")
     public String index(Model model) {
         Iterable<ProductType> types = productTypeRepository.findAll();
         Map<ProductType, List<Product>> map = new HashMap<>();
         types.forEach(type -> map.put(type, productRepository.findByProductType(type)));
         model.addAttribute("map", map);
+
         return "index";
     }
     @GetMapping("/product")
@@ -51,10 +55,6 @@ public class DefaultController {
         return "loginPage";
         }
 
-     @GetMapping("/registration")
-     public String registration(Model model){
-        return "registration";
-     }
 
 
 

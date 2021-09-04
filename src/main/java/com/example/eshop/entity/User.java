@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,11 +15,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_sequence")
     private Long id;
     @Column(name = "First_name")
-    private String firstName;
+    private String FirstName;
     @Column(name = "Last_name")
-    private String lastName;
+    private String LastName;
+    @Column(name = "email")
     private String email;
-    private String password;
+    @Column(name = "password")
+    private String Password;
     @ManyToMany(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(
             name= "users_roles",
@@ -33,14 +36,21 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
+    public User(Long id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        id= id;
+        FirstName = firstName;
+        LastName = lastName;
+        email = email;
+        Password = password;
+        this.roles = roles;
     }
-
+    public User( String firstName, String lastName, String email, String password, Collection<Role> roles) {
+        FirstName = firstName;
+        LastName = lastName;
+        email = email;
+        Password = password;
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;
@@ -51,19 +61,19 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return FirstName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.LastName = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return LastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.LastName = lastName;
     }
 
     public String getEmail() {
@@ -75,11 +85,11 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 }
 

@@ -5,12 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Orders", //
-        uniqueConstraints = { @UniqueConstraint(columnNames = "Order_Num") })
+@Table(name = "Orders")
 public class Order {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", length = 50)
     private String id;
     @Column(name = "Order_Date", nullable = false)

@@ -73,6 +73,7 @@
                         <div class="menuitem"><p>Contact</p></div>
                     </a>
                 </div>
+                <form th:action="@{/loginPage}" method="post">
                 <div class="login">
                     <input type="text" placeholder="Username" id="username">
                     <input type="password" placeholder="password" id="password">
@@ -80,7 +81,7 @@
                     <input type="submit" value="Sign In">
                 </div>
                 <div class="shadow"></div>
-
+                </form>
 
                 <div id="brand">
                     <img src="images/1.png" alt="foto1">
