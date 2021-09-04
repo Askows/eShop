@@ -1,4 +1,4 @@
-package com.example.eshop.SecurityConfig;
+package com.example.eshop.Services;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

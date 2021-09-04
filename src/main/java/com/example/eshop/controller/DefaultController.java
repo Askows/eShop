@@ -51,6 +51,11 @@ public class DefaultController {
         return "loginPage";
         }
 
+     @GetMapping("/registration")
+     public String registration(Model model){
+        return "registration";
+     }
+
 
 
     @GetMapping("/productTypeList")

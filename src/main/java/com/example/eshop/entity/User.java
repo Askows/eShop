@@ -1,7 +1,6 @@
 package com.example.eshop.entity;
 
-import com.example.eshop.SecurityConfig.Role;
-
+import com.example.eshop.Services.Role;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,11 +14,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "products_sequence")
     private Long id;
     @Column(name = "First_name")
-    private String FirstName;
+    private String firstName;
     @Column(name = "Last_name")
-    private String LastName;
+    private String lastName;
     private String email;
-    private String Password;
+    private String password;
     @ManyToMany(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(
             name= "users_roles",
@@ -34,13 +33,14 @@ public class User {
     public User() {
     }
 
-    public User( String firstName, String lastName, String email, String password, Collection<Role> roles) {
-        FirstName = firstName;
-        LastName = lastName;
+    public User(Long id, String firstName, String lastName, String email, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        Password = password;
-        this.roles = roles;
+        this.password = password;
     }
+
 
     public Long getId() {
         return id;
@@ -51,19 +51,19 @@ public class User {
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -75,11 +75,11 @@ public class User {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 }
 

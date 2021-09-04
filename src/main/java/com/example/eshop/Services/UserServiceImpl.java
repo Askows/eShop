@@ -1,6 +1,5 @@
 package com.example.eshop.Services;
 
-import com.example.eshop.SecurityConfig.Role;
 import com.example.eshop.dto.UserRegistrationDto;
 import com.example.eshop.entity.User;
 import com.example.eshop.repository.UserRepository;
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
                 registrationDto.getLastname(),
                 registrationDto.getEmail(),
         passwordEncoder.encode(registrationDto.getPassword()),
-                Arrays.asList(new Role("ROLE_USER")));
+              Arrays.asList(new Role("ROLE_USER")));
             return userRepo.save(user);
     }
 

@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/webjars/**","/styles/**", "/font-awesome-4.7.0/**", "/fonts/**", "/images/**", "/", "/loginPage/**", "/orderPage/**","/product","orderPage/**").permitAll()
+                .antMatchers("/webjars/**","/styles/**", "/font-awesome-4.7.0/**", "/fonts/**", "/images/**", "/", "/loginPage/**", "/orderPage/**","/product","orderPage/**","/registration").permitAll()
                 .antMatchers("/productTypeForm", "productTypeList").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

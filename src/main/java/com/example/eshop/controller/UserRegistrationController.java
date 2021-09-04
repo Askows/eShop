@@ -26,7 +26,7 @@ public class UserRegistrationController {
         return "registration";
     }
     @PostMapping
-    public String registerUserAvvount(@ModelAttribute("user") UserRegistrationDto registrationDto){
+    public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto){
         userService.save(registrationDto);
         return "redirect:/register?success";
     }
