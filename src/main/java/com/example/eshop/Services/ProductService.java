@@ -17,27 +17,31 @@ public class ProductService {
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
+
     //Show all products
-    public List<Product> list(){
+    public List<Product> list() {
         return productRepository.findAll();
     }
+
     //Add products to database
-    public void add(Product product){
+    public void add(Product product) {
         productRepository.save(product);
     }
+
     //Delete product by Id from database
     public void delete(Long productId) {
         productRepository.deleteById(productId);
     }
+
     //Upddate product in database
     public void update(Product product) {
         Optional<Product> row = productRepository.findById(product.getId());
-        if(row.isPresent()){
+        if (row.isPresent()) {
             Product item = row.get();
-            if(!product.getName().isEmpty()){
+            if (!product.getName().isEmpty()) {
                 item.setName(product.getName());
             }
-            if(product.getPrice() != 0){
+            if (product.getPrice() != 0) {
                 item.setPrice(product.getPrice());
             }
             productRepository.save(item);
@@ -45,4 +49,5 @@ public class ProductService {
 
 
     }
+
 }
