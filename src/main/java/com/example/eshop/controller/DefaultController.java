@@ -3,7 +3,7 @@ package com.example.eshop.controller;
 
 import com.example.eshop.entity.Product;
 import com.example.eshop.entity.ProductType;
-import com.example.eshop.repository.OrderRepository;
+
 import com.example.eshop.repository.ProductRepository;
 import com.example.eshop.repository.ProductTypeRepository;
 import lombok.Value;
@@ -25,8 +25,7 @@ public class DefaultController {
     @Autowired
     ProductRepository productRepository;
 
-    @Autowired
-    OrderRepository orderRepository;
+
 
 
 

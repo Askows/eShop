@@ -38,17 +38,17 @@ public class User {
 
     public User(Long id, String firstName, String lastName, String email, String password, Collection<Role> roles) {
         id= id;
-        FirstName = firstName;
-        LastName = lastName;
-        email = email;
-        Password = password;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.email = email;
+        this.Password = password;
         this.roles = roles;
     }
     public User( String firstName, String lastName, String email, String password, Collection<Role> roles) {
-        FirstName = firstName;
-        LastName = lastName;
-        email = email;
-        Password = password;
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.email = email;
+        this.Password = password;
         this.roles = roles;
     }
 

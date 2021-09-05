@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
         <meta charset="UTF-8">
         <title>Askow Shop</title>
@@ -10,10 +10,21 @@
         <div class="BigHeader">
             <div class="header">
                 <img src="images/logo.png" alt="logo">
-                <div class="welcome">
-                    <p id="welcome">Welcome to askow shop</p>
+                <div class="welcome" sec:authorize="isAuthenticated()">
+                    <p id="welcome">Welcome <span sec:authentication="principal.username"> User</span> with roles: <span sec:authentication="principal.authorities"> Authorities</span>
                     <p id="text">The only online store you will ever need for Gaming and Anime merchandise  </p>
+
                 </div>
+                <div class="welcome" sec:authorize="isAnonymous()">
+                    Wellcome mistical user
+                    <p class="text">The only online store you will ever need for Gaming and Anime merchandise  </p>
+                </div>
+
+
+
+
+
+
                 <div class="icons">
                     <a href=""><i class="fa fa-facebook fa-1x" aria-hidden="true"></i></a>
                     <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
@@ -80,7 +91,7 @@
                         </div>
                         <div>
 <!--                            <div class="product" th:each="prod : ${element.value}" th:attr="onclick=|window.location.href='product/' + ${prod.id}|">-->
-                            <div class="product" th:each="prod : ${element.value}" th:attr="onclick=|window.location.href='product?id=' + ${prod.id}|">
+                            <div class="product" th:each="prod : ${element.value}" th:attr="onclick=|window.location.href='product?id='+ ${prod.id}|">
                                 <img class="triangle" src="images/New.png" alt="new" th:if="${prod.newProduct} == true">
                                 <img class="triangle" src="images/Hot.png" alt="new" th:if="${prod.hotProduct} == true">
                                 <img class="foto" th:src="@{'/images/' + ${prod.image}}" alt="">
